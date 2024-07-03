@@ -10,6 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { MaterialModule } from './material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 //Componentes
 import { LoginComponent } from './components/login/login.component';
@@ -33,6 +35,8 @@ import { AddTokenInterceptor } from './utils/add-token.interceptor';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    MaterialModule,
+    FlexLayoutModule,
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
