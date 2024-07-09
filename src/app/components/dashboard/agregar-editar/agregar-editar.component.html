@@ -1,0 +1,77 @@
+<form [formGroup]="form" (ngSubmit)="guardarProducto()">
+  <h2 mat-dialog-title="">
+    {{
+      data.operation === "add" ? "Agregar Nuevo Producto" : "Editar Producto"
+    }}
+  </h2>
+  <mat-dialog-content>
+    <section
+      fxLayoutAlign="center"
+      style="margin-top: 10px; margin-bottom: 10px"
+    >
+      <mat-card fxFlex="100%">
+        <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+          <mat-form-field>
+            <mat-label>Ingrese Nombre</mat-label>
+            <input
+              type="text"
+              matInput
+              placeholder="ejem. Arroz"
+              formControlName="name"
+              required
+            />
+            <mat-error>Debe ingresar el nombre del producto</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Ingrese Descripción</mat-label>
+            <input
+              type="text"
+              matInput
+              placeholder="ejem. Saco de 50 KG"
+              formControlName="description"
+              required
+            />
+            <mat-error>Debe ingresar la descripción del producto</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Ingrese Precio</mat-label>
+            <input
+              type="number"
+              matInput
+              placeholder="ejem. S/. 20"
+              formControlName="price"
+              required
+            />
+            <mat-error>Debe ingresar el precio del producto</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Ingrese Cantidad</mat-label>
+            <input
+              type="number"
+              matInput
+              placeholder="ejem. 50"
+              formControlName="stock"
+              required
+            />
+            <mat-error>Debe ingresar el stock del producto</mat-error>
+          </mat-form-field>
+          <mat-form-field *ngIf="data.operation === 'add'">
+            <mat-label>Ingrese Fecha de Creación</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="fechaCreacion" />
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </mat-card>
+    </section>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="true">Cerrar</button>
+    <button mat-button type="submit" [disabled]="form.invalid">
+      {{ data.operation === "add" ? "Guardar" : "Actualizar" }}
+    </button>
+  </mat-dialog-actions>
+</form>

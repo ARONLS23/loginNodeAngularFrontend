@@ -19,3 +19,10 @@ a:active{
   margin-bottom: 20px; /* Espacio hacia abajo */
 }
 
+.no-decoration {
+  text-decoration: none;
+  color: inherit; /* Mantiene el color del texto */
+  cursor: pointer;
+}
+
+

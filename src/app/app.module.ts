@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //Modulos
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { MaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -20,6 +20,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { AddTokenInterceptor } from './utils/add-token.interceptor';
+import { AgregarComponent } from './components/dashboard/agregar-editar/agregar-editar.component';
+import { EliminarComponent } from './components/dashboard/eliminar/eliminar/eliminar.component';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 
 @NgModule({
@@ -29,7 +32,9 @@ import { AddTokenInterceptor } from './utils/add-token.interceptor';
     SignInComponent,
     DashboardComponent,
     NavbarComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    AgregarComponent,
+    EliminarComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +43,7 @@ import { AddTokenInterceptor } from './utils/add-token.interceptor';
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       timeOut: 4000,
@@ -46,7 +52,7 @@ import { AddTokenInterceptor } from './utils/add-token.interceptor';
     })
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true}, {provide: MAT_DATE_LOCALE, useValue: 'es-ES'},
   ],
   bootstrap: [AppComponent]
 })

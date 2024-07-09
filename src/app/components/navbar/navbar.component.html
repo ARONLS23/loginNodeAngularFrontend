@@ -1,11 +1,11 @@
 <mat-toolbar color="primary" class="espaciado">
   <div fxFlex="100" fxLayout fxLayoutAlign="center center">
-    <span>Productos</span>
+    <a (click)="onProductsClick()" class="no-decoration">Productos</a>
   </div>
   <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
     <ul fxLayout="row" fxLayoutGap="10px" class="navegacion-menu">
       <ul fxLayout="row" fxLayoutGap="10px" class="navegacion-menu">
-        <button mat-raised-button color="primary" (click)="logOut()">Salir</button>
+        <a (click)="logOut()" class="no-decoration">Salir</a>
       </ul>
     </ul>
   </div>
